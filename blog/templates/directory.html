@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>
+        目录
+    </title>
+</head>
+<body>
+     <div class="container">
+         <h1>目录</h1>
+        <hr/>
+         <div class="list-group">
+             {% for article in list %}
+                <a href="../article/{{ article.id }}/" class="list-group-item">{{ article.title }}</a>
+             {% endfor %}
+         </div>
+     </div>
+</body>
+</html>

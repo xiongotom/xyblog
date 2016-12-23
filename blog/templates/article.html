@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{#{% bootstrap_messages %}#}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>
+        {{ title }}
+    </title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+    {#    <p>#}
+    {#        <a href="{% url 'home' %}">首页</a>#}
+    {#        <a href="{% url 'admin' %}">管理</a>#}
+    {#    </p>#}
+        <hr/>
+
+        <div class="well">
+            {% for line in content %}
+                <p>{{ line }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
