@@ -18,6 +18,7 @@ from django.contrib import admin
 from blog import views as blog_views
 
 urlpatterns = [
+    url(r'^$',blog_views.home, name='home'),
     url(r'^home/', blog_views.home, name='home'),
     url(r'^article/(\d+)/$', blog_views.get_article),
     url(r'^dir/$', blog_views.get_directiory),

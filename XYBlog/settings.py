@@ -25,13 +25,12 @@ SECRET_KEY = 'cpf-(t@$tx2k(%lfp(0*8*hlv91y(^q9=71(8cd&h0*s%2^)y@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['60.205.207.101','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap3.bootstrap',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'bootstrap3',
     'blog',
 ]
 
@@ -121,5 +119,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
 STATIC_URL = '/static/'
