@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{#{% bootstrap_messages %}#}
-
-
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <title>
@@ -17,16 +12,21 @@
 <body>
     <div class="container">
         <h1>{{ title }}</h1>
+        <h6 align="right">{{ createtime|date:"Y-m-d" }}</h6>
     {#    <p>#}
     {#        <a href="{% url 'home' %}">首页</a>#}
     {#        <a href="{% url 'admin' %}">管理</a>#}
     {#    </p>#}
         <hr/>
-
-        <div class="well">
-            {% for line in content %}
-                <p>{{ line }}</p>
-            {% endfor %}
+{#        <div class="well">#}
+{#            #}
+{#        </div>#}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {% for line in content %}
+                    <p>{{ line }}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </body>

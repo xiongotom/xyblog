@@ -24,7 +24,7 @@ def home(request):
 def get_directiory(request):
     list = []
     try:
-        list = Article.objects.all()
+        list = Article.objects.filter(is_prived=False)
     except Exception as e:
         list = ['啥也没找到']
     return render(request, 'directory.html', {'list':list})
@@ -32,13 +32,15 @@ def get_directiory(request):
 def get_article(request, id):
     title = ''
     content = ''
+    createtime = ''
     try:
         article = Article.objects.get(id=int(id))
         if article:
             title = article.title
             content = article.content
             content = content.split('\r\n')
+            createtime = article.date_time
     except Exception as e:
         content = '翻遍了也没找到您要的东西 ==!'
 
-    return render(request, 'article.html', {'title':title,'content':content})
+    return render(request, 'article.html', {'title':title,'content':content,'createtime':createtime})
