@@ -1,0 +1,39 @@
+
+.home_back_img {
+	background-image: url("/static/bck.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-origin: content-box;
+}
+
+.home_image{
+	position: relative;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+.home_words{
+	/*position: absolute;*/
+	/*top:35px;*/
+	/*padding-left: 35px;*/
+  	/*color: #ffffff;*/
+	/*max-width: 100%;*/
+	opacity: 0.8;
+}
+
+.home_words h1,
+.home_words .h1 {
+  color: inherit;
+}
+.home_words p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+.home_words > hr {
+  border-top-color: #d5d5d5;
+}
+
+.home_button {
+	position: absolute;
+}
