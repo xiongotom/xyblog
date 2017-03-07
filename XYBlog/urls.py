@@ -22,6 +22,7 @@ from blog import views as blog_views
 urlpatterns = [
     url(r'^$',blog_views.home, name='home'),
     url(r'^home/', blog_views.home, name='home'),
+    url(r'^login/$', blog_views.login),
     url(r'^article/(\d+)/$', blog_views.get_article),
     url(r'^dir/$', blog_views.get_directiory),
     url(r'^admin/', admin.site.urls, name='admin'),

@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
 
-from blog.models import Article
+from blog.models import *
+from blog.database import dbhelp
 
 
 # def current_datetime(request):
@@ -21,12 +22,19 @@ def home(request):
 #         print('get manager '+manager.name)
 #     return render(request, 'home.html', {'manager_list':manager_list})
 
+def login(request):
+    password = request.GET['password']
+    request.session['pwd'] = password
+    if password != '':
+        list = get_artlist(password)
+        return render(request, 'directory.html', {'list':list})
+    else:
+        return render(request, 'home.html')
+
+
 def get_directiory(request):
-    list = []
-    try:
-        list = Article.objects.filter(is_prived=False)
-    except Exception as e:
-        list = ['啥也没找到']
+    password = request.session.get('pwd',default='')
+    list = get_artlist(password)
     return render(request, 'directory.html', {'list':list})
 
 def get_article(request, id):
@@ -44,3 +52,17 @@ def get_article(request, id):
         content = '翻遍了也没找到您要的东西 ==!'
 
     return render(request, 'article.html', {'title':title,'content':content,'createtime':createtime})
+
+
+def get_artlist(pwd=''):
+    list = []
+    try:
+        # list = Article.objects.filter(is_prived=False)
+        # list = dbhelp.Dbhelp.get_artcle_list_by_password(pwd)
+        pwd_list = GroupPassword.objects.filter(content=pwd)
+        if len(pwd_list) == 1:
+            artcle_list = Article.objects.filter(group_id=pwd_list[0].group.id)
+            return artcle_list
+    except Exception as e:
+        list = ['啥也没找到']
+    return list

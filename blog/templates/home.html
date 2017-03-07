@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-{% load static %}
+{% load staticfiles %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="/static/css/blog.css"/>
     <title>猫猫妹陀</title>
 </head>
-<body class="home_back_img">
-    <div class="container">
-{#        <div class="home_image">#}
-{#            <img src="{% static "image/bck.jpg" %}" alt="" class="img-rounded img-responsive">#}
-{#        </div>#}
-        <div class="jumbotron home_words">
+<body>
+    <div class="jumbotron">
+        <div class="home_image">
+            <img src="{% static "image/bck.jpg" %}" alt="" class="img-rounded img-responsive">
+        </div>
+        <div class="container">
             <h1>猫猫妹陀</h1>
             <p>这里是猫猫妹陀的博客，是猫猫送给妹陀的结婚纪念日礼物哦～ </p>
             <p>2016.12.22 - forever</p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="../dir/" role="button">进入</a>
-            </p>
+{#            <p>#}
+{#                <a class="btn btn-primary btn-lg" href="../dir/" role="button">进入</a>#}
+{#            </p>#}
+            <form action="/login/" method="get" class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only">password</label>
+                    <input type="text" class="form-control" name="password" placeholder="暗号">
+                </div>
+{#                <input type="text" name="password">#}
+{#                <input type="submit" value="确认">#}
+            </form>
         </div>
     </div>
 </body>
